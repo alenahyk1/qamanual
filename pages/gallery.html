@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Gallery</title>
+		<link rel="icon" type="image/x-icon" href="photo/favicon.ico">	
+	</head>
+	<body>
+		<div>
+			<h1>Gallery</h1>	
+			<div>		
+				<div class="mySlides">
+					<div>1 / 7</div>
+					<img class="slide" src="photo/Kyivska Rus park.jpg" alt="Vasylkiv, Kyivska Rus park" width="50%" height="50%">
+				</div>
+
+				<div class="mySlides">
+					<div>2 / 7</div>
+					<img class="slide" src="photo/Kvasi.jpg" alt="Kvasi" width="50%" height="50%">
+				</div>
+
+				<div class="mySlides">
+					<div>3 / 7</div>
+					<img class="slide" src="photo/Uman dendrological park.jpg" alt="Uman dendrological park" width="50%" height="50%">
+				</div>
+
+				<div class="mySlides">
+					<div>4 / 7</div>
+					<img class="slide" src="photo/Chigyrin.jpg" alt="Chigyrin" width="50%" height="50%">
+				</div>
+
+				<div class="mySlides">
+					<div>5 / 7</div>
+					<img class="slide" src="photo/Dnipro river.jpg" alt="Dnipro river" width="50%" height="50%">
+				</div>
+			
+				<div class="mySlides">
+					<div>6 / 7</div>
+					<img class="slide" src="photo/Hoverla.jpg" alt="Hoverla" width="50%" height="50%">
+				</div>
+  
+				<div class="mySlides">
+					<div>7 / 7</div>
+					<img class="slide" src="photo/Korsun-Shevchenkiv park.jpg" alt="Korsun-Shevchenkiv park" width="50%" height="50%">
+				</div>
+
+				<!-- Next and previous buttons -->
+				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+				<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+				<!-- Image text -->
+				<div class="caption-container">
+					<p id="caption"></p>
+				</div> 
+			</div>	
+		</div>
+
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("slide");
+                let captionText = document.getElementById("caption");
+                if (n > slides.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = slides.length}
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";
+                dots[slideIndex-1].className += " active";
+                captionText.innerHTML = dots[slideIndex-1].alt;
+            }
+        </script>
+	</body>
+</html>
